@@ -1,0 +1,21 @@
+<ion-view view-title="Tipo de productos">
+  
+  <div class="bar bar-header bar-balanced">
+    <div class="button-bar button-clear button-dark">
+      <button class="button button-clear button-dark icon-left ion-android-arrow-back" ng-controller="TypesCtrl" ng-click="BackToMain()"></button>
+      <!--<button class="button button-clear button-dark icon-right icon ion-android-add" ng-click="goCreateWord()"></button>-->
+    </div>
+  </div>
+
+  <ion-content class="has-header has-footer">
+
+    <ion-list>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="subcategory in subcategories" type="item-text-wrap">
+          <h2 ng-click="selectProducts(subcategory._id)">{{subcategory.name}}</h2>
+      </ion-item>
+    </ion-list>
+
+
+  </ion-content>
+
+</ion-view>

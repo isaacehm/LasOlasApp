@@ -1,0 +1,21 @@
+<ion-view view-title="Productos">
+  
+  <div class="bar bar-header bar-balanced">
+    <div class="button-bar button-clear button-dark">
+      <button class="button button-clear button-dark icon-left ion-android-arrow-back" ng-controller="ProductsCtrl" ng-click="BackToMain()"></button>
+      <!--<button class="button button-clear button-dark icon-right icon ion-android-add" ng-click="goCreateWord()"></button>-->
+    </div>
+  </div>
+
+  <ion-content class="has-header has-footer">
+
+    <ion-list>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="product in products" type="item-text-wrap">
+          <h2 ng-click="selectType(product._id)">{{product.name}}</h2>
+      </ion-item>
+    </ion-list>
+
+
+  </ion-content>
+
+</ion-view>
