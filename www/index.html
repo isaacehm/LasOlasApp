@@ -25,18 +25,24 @@
     <script src="js/services.js"></script>
   </head>
 
-  <body ng-app="starter" ng-controller="InitCtrl">
+  <body ng-app="starter" ng-controller="InitCtrl" animation="nav-title-slide-ios7">
 
-    <!--<ion-pane>
-      <ion-header-bar class="bar-stable">
-        <h1 class="title">Ionic Blank Starter</h1>
-      </ion-header-bar>
-      <ion-content>
-      </ion-content>
-    </ion-pane>-->
+    <!--<ion-nav-bar animation="nav-title-slide-ios7" class="bar-positive">-->
+        <!--<ion-nav-back-button>
+        </ion-nav-back-button>
+
+        <ion-nav-buttons side="right">
+            <button class="button button-clear" ng-click="reset()">
+                Estadias
+            </button>
+        </ion-nav-buttons>-->
+
+    <!--</ion-nav-bar>-->
 
 
+    <!--<ion-nav-view animation="nav-title-slide-ios7"></ion-nav-view>-->
+    <ion-nav-view animation="slide-left-right"></ion-nav-view>
 
-    <ion-nav-view></ion-nav-view>
+
   </body>
 </html>

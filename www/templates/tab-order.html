@@ -1,0 +1,43 @@
+<ion-view title="Pedido">
+	
+	<ion-nav-bar animation="nav-title-slide-ios7" class="bar-stable custom-bar">
+	</ion-nav-bar>
+
+	<ion-nav-buttons side="right">
+		<button class="button" ng-controller="OrdersCtrl" ng-click="removeOrder()">
+			<i class="icon ion-trash-b custom-trash-icon"></i>
+		</button>
+	</ion-nav-buttons>
+
+	<ion-content>
+
+		<div class="banner">
+	      <h4>PEDIDO</h4>
+	      <p>Tu pedido actual</p>
+	    </div>
+
+		<div ng-if="!hasOrder" class="notification">
+			<h4 style="text-align: center;">No ha iniciado ningun pedido</h4>
+			<p>Por favor, agregue al menos un producto al pedido.</p>
+		</div>
+
+		<ion-list ng-if="hasOrder">
+			<ion-item class="item-remove-animate" ng-repeat="order in orders" type="item-text-wrap" ng-if="order.order > 0">
+				<div> <span>{{order.order}} {{order.name}}</span> <span style="float:right;">$ {{order.total}}</span> </div>
+				<input type="text" class="note" ng-model="order.note" value="{{order.note}}" placeholder="Añadir comentario..."></input>
+			</ion-item>
+
+			<ion-item class="item-remove-animate">
+				<div> <span><b>TOTAL</b></span> <span style="float:right;">$ {{total}}</span> </div>
+			</ion-item>
+			
+
+
+		</ion-list>
+
+		<div class="text-right sendButton" ng-if="hasOrder">
+			<button class="button button-calm" ng-controller="OrdersCtrl" ng-click="sendOrder()">Enviar pedido</button>
+		</div>
+
+	</ion-content>
+</ion-view>

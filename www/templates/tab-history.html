@@ -1,0 +1,45 @@
+<ion-view title="Historial">
+
+	<ion-nav-bar animation="nav-title-slide-ios7" class="bar-stable custom-bar">
+	</ion-nav-bar>
+
+	<ion-nav-buttons side="right">
+		<button class="button" ng-controller="OrdersCtrl" ng-click="removeOrder()">
+			<i class="icon ion-trash-b custom-trash-icon"></i>
+		</button>
+	</ion-nav-buttons>
+
+	<ion-content>
+		<div class="banner">
+	      <h4>HISTORIAL</h4>
+	      <p>Tus pedidos enviados hoy</p>
+	    </div>
+
+	    <ion-list>
+
+	      <div ng-repeat="myOrder in myOrders">
+	        <ion-item class="item-stable" ng-click="toggleGroup(myOrder)" ng-class="{active: isGroupShown(myOrder)}">
+	            <i class="icon" ng-class="isGroupShown(myOrder) ? 'ion-minus' : 'ion-plus'"></i>
+	          &nbsp;
+	          {{myOrder.stay}} {{myOrder.stayNumber}}
+	          <p>{{myOrder.date}}</p>
+	        </ion-item>
+	        <ion-item class="item-accordion" ng-show="isGroupShown(myOrder)" ng-repeat="product in myOrder.products">
+	          <div> <span>{{product.order}} {{product.name}}</span> <span style="float:right;">$ {{product.total}}</span> </div>
+	        </ion-item>
+	        <ion-item class="item-accordion" ng-show="isGroupShown(myOrder)">
+	          <div> <span><b>TOTAL</b></span> <span style="float:right;">$ {{myOrder.total}}</span> </div>
+	          <p ng-class="isPending(myOrder.status) ? 'green' : 'red'" style="line-height: 20px;"> {{myOrder.status}} </p>
+	        </ion-item>        
+
+	      </div>
+
+
+    </ion-list>
+
+
+
+
+
+	</ion-content>
+</ion-view>

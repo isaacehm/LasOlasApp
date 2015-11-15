@@ -1,0 +1,28 @@
+<ion-view view-title="Estancias">
+
+  <ion-nav-bar animation="nav-title-slide-ios7" class="bar-stable">
+  </ion-nav-bar>
+
+  <div class="bar bar-subheader bar-dark">
+    <button class="button button-clear custum-button button-dark" ng-controller="MenuCtrl" ng-click="goToMenu()">Menú</button>
+
+    <button class="button button-clear custum-button button-dark" ng-controller="HistoryCtrl" ng-click="goToHistory()">Historial</button>
+  </div>
+
+  <ion-content class="has-header has-subheader">
+
+    <div class="banner">
+      <h4>ASIGNA UNA ESTANCIA</h4>
+      <p>Elige una estancia para tu pedido</p>
+    </div>
+
+    <ion-list>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="stay in stays" type="item-text-wrap" ng-click="selectStayNumber(stay.name)">
+          <h2>{{stay.name}}</h2>
+          <i class="icon ion-chevron-right"></i>
+      </ion-item>
+    </ion-list>
+
+  </ion-content>
+
+</ion-view>

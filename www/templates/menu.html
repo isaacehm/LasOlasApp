@@ -1,0 +1,36 @@
+<ion-view view-title="Menú">
+  <ion-nav-bar animation="nav-title-slide-ios7" class="bar-stable">
+    <ion-nav-back-button></ion-nav-back-button>
+  </ion-nav-bar>
+
+  <!--<div class="bar bar-header bar-balanced">
+    <div class="button-bar button-clear button-dark">
+      <button class="button button-clear button-dark icon-left ion-android-arrow-back" ng-controller="MenuCtrl" ng-click="BackToStays()"></button>
+    </div>
+  </div>-->
+
+  <!--<div class="bar bar-subheader bar-balanced">
+    <button class="button button-clear button-dark" ng-controller="OrdersCtrl" ng-click="BackToMain()">Menú</button>
+
+    <button class="button button-clear button-dark" ng-controller="OrdersCtrl" ng-click="createOrder()">Pedido</button>
+
+    <button class="button button-clear button-dark" ng-controller="OrdersCtrl" ng-click="showHistory()">Historial</button>
+  </div>-->
+
+
+  <ion-content>
+    <div class="banner">
+      <h4>MENÚ</h4>
+      <p>Revisa el catalogo de productos actual</p>
+    </div>
+
+    <ion-list>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="category in categories" type="item-text-wrap" ng-click="selectTypeOut(category._id, category.name)">
+          <h2>{{category.name}}</h2>
+          <i class="icon ion-chevron-right"></i>
+      </ion-item>
+    </ion-list>
+    
+   </ion-content>
+
+</ion-view>
