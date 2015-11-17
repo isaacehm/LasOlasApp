@@ -1,7 +1,11 @@
 <ion-view view-title="Menú">
-  <ion-nav-bar animation="nav-title-slide-ios7" class="bar-stable">
+  <ion-nav-bar animation="nav-title-slide-ios7" class="bar-stable custom-bar">
     <ion-nav-back-button></ion-nav-back-button>
   </ion-nav-bar>
+
+  <ion-nav-title>
+    <img id="logo-head" src="../img/horizont-small.png">    
+  </ion-nav-title>
 
   <ion-content>
     <div class="banner">
@@ -10,6 +14,11 @@
     </div>
 
     <ion-list>
+
+      <div ng-if="myOrders.length < 1" class="notification">
+        <h4 style="text-align: center;">No ha enviado ningun pedido hoy</h4>
+      </div>
+
 
       <div ng-repeat="myOrder in myOrders">
         <ion-item class="item-stable" ng-click="toggleGroup(myOrder)" ng-class="{active: isGroupShown(myOrder)}">

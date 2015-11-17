@@ -3,6 +3,10 @@
 		<ion-nav-back-button></ion-nav-back-button>
 	</ion-nav-bar>
 
+	<ion-nav-title>
+		<img id="logo-head" src="../img/horizont-small.png">    
+	</ion-nav-title>
+
   <ion-nav-buttons side="right">
     <button class="button" ng-controller="OrdersCtrl" ng-click="removeOrder()">
 		<i class="icon ion-trash-b custom-trash-icon"></i>
@@ -10,6 +14,8 @@
   </ion-nav-buttons>
 
 	<ion-content>
+
+		<div id="current-container">{{stay}} {{stayNumber}}</div>
 
 		<div class="banner">
 		  <h4>{{category}}</h4>

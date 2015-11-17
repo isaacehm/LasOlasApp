@@ -1,16 +1,22 @@
 <ion-view view-title="Las Olas" name="login-view">
-  <ion-nav-bar animation="nav-title-slide-ios7" class="bar-stable">
+
+  <ion-nav-bar animation="nav-title-slide-ios7" class="bar-stable">    
   </ion-nav-bar>
 
   <ion-content class="padding">
+
+      <div id="logo-container">
+        <img id="logo" src="../img/horizont-big.png">
+        <p>GESTIÓN EN GASTRONOMÍA</p>
+      </div>
       <div class="list list-inset">
-          <label class="item item-input">
+          <label class="item item-input custom-input">
               <input type="text" placeholder="Usuario" ng-model="data.username">
           </label>
-          <label class="item item-input">
+          <label class="item item-input custom-input custom-input-medium">
               <input type="password" placeholder="Contraseña" ng-model="data.password">
           </label>
       </div>
-      <button class="button button-block button-calm" ng-click="login()">Iniciar sesión</button>
+      <button class="button button-block button-calm custom-login-button" ng-click="login()">INICIAR SESIÓN</button>
   </ion-content>
 </ion-view>

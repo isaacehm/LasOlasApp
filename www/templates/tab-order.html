@@ -3,6 +3,10 @@
 	<ion-nav-bar animation="nav-title-slide-ios7" class="bar-stable custom-bar">
 	</ion-nav-bar>
 
+	<ion-nav-title>
+		<img id="logo-head" src="../img/horizont-small.png">    
+	</ion-nav-title>
+
 	<ion-nav-buttons side="right">
 		<button class="button" ng-controller="OrdersCtrl" ng-click="removeOrder()">
 			<i class="icon ion-trash-b custom-trash-icon"></i>
@@ -11,7 +15,9 @@
 
 	<ion-content>
 
-		<div class="banner">
+		<div id="current-container">{{stay}} {{stayNumber}}</div>
+
+		<div class="banner banner-order">
 	      <h4>PEDIDO</h4>
 	      <p>Tu pedido actual</p>
 	    </div>
@@ -22,13 +28,13 @@
 		</div>
 
 		<ion-list ng-if="hasOrder">
-			<ion-item class="item-remove-animate" ng-repeat="order in orders" type="item-text-wrap" ng-if="order.order > 0">
+			<ion-item class="item-remove-animate custom-item-product" ng-repeat="order in orders" type="item-text-wrap" ng-if="order.order > 0">
 				<div> <span>{{order.order}} {{order.name}}</span> <span style="float:right;">$ {{order.total}}</span> </div>
-				<input type="text" class="note" ng-model="order.note" value="{{order.note}}" placeholder="Añadir comentario..."></input>
+				<input id="description" type="text" class="note" ng-model="order.note" value="{{order.note}}" placeholder="Añadir comentario..."></input>
 			</ion-item>
 
-			<ion-item class="item-remove-animate">
-				<div> <span><b>TOTAL</b></span> <span style="float:right;">$ {{total}}</span> </div>
+			<ion-item class="item-remove-animate custom-item-total">
+				<div> <span><b>TOTAL</b></span> <span id="order-total" style="float:right;">$ {{total}}</span> </div>
 			</ion-item>
 			
 

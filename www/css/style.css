@@ -27,7 +27,7 @@
 }
 
 .banner{
-  padding-top: 10px;
+  padding-bottom: 5px;
   padding-left: 10px;
   line-height: 2px;
   border-bottom-color: gray;
@@ -50,7 +50,7 @@
 }
 
 .bar{
-  border-color: #11c1f3 !important;
+  border-color: #0480ce !important;
   border-bottom-width: 3px;
 }
 
@@ -63,13 +63,102 @@
 }
 
 .tab-item.tab-item-active{
-    border: 0 solid #11c1f3 !important;
+    border: 0 solid #0480ce !important;
 }
 
 .sendButton{
   padding: 15px;
 }
 
+.sendButton > button{
+  background: linear-gradient(#00a0e1, #075fbb);
+}
+
 .notification{
   padding: 10px;
 }
+
+#logo-container{
+  text-align: center;
+  margin-top: 15%;
+  color: gray;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+#logo{
+  width: 50%;
+}
+
+#logo-head{
+  width: 9%;
+  margin-top: 6px;
+}
+
+.custom-input{
+  border-style: solid;
+  border-width: 3px;
+  border-color: #0480ce;
+  /*border-image: linear-gradient(to bottom, #00a0e1, #0b3fa8) 1;*/
+}
+
+.custom-input-medium{
+  border-top-width: 1px;
+}
+
+.custom-login-button{
+  background: linear-gradient(#00a0e1, #075fbb);
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.tab-title, .ng-binding{
+  font-size: 16px;
+}
+.item.activated{
+  background-color: #00a0e1 !important;
+}
+
+.item.activated > h2{
+  color: white;
+}
+
+.banner-order{
+  border-bottom-color: #00a0e1 !important;
+}
+
+.custom-item-product{
+  background-color: rgba(4, 128, 206, 0.2);
+}
+
+.custom-item-total{
+  color: white;
+  font-weight: bold;
+  background-color: rgba(0, 160, 225, 0.6);
+}
+
+#order-total{
+  color: black;
+}
+
+#description{
+  margin-top: 10px;
+  padding-left: 10px;
+  background-color: rgba(4, 128, 206, 0.1);
+}
+
+#current-container{
+  float: right;
+  margin-right: 10px;
+  color: gray;
+  font-size: 14px;
+}
+
+
+
+/*
+#00a0e1
+#0480ce
+#075fbb
+#0b3fa8
+*/

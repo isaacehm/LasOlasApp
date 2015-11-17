@@ -3,6 +3,10 @@
 	<ion-nav-bar animation="nav-title-slide-ios7" class="bar-stable custom-bar">
 	</ion-nav-bar>
 
+	<ion-nav-title>
+		<img id="logo-head" src="../img/horizont-small.png">    
+	</ion-nav-title>
+
 	<ion-nav-buttons side="right">
 		<button class="button" ng-controller="OrdersCtrl" ng-click="removeOrder()">
 			<i class="icon ion-trash-b custom-trash-icon"></i>
@@ -10,12 +14,18 @@
 	</ion-nav-buttons>
 
 	<ion-content>
+		<div id="current-container">{{stay}} {{stayNumber}}</div>
+		
 		<div class="banner">
 	      <h4>HISTORIAL</h4>
 	      <p>Tus pedidos enviados hoy</p>
 	    </div>
 
 	    <ion-list>
+
+			<div ng-if="myOrders.length < 1" class="notification">
+				<h4 style="text-align: center;">No ha enviado ningun pedido hoy</h4>
+			</div>
 
 	      <div ng-repeat="myOrder in myOrders">
 	        <ion-item class="item-stable" ng-click="toggleGroup(myOrder)" ng-class="{active: isGroupShown(myOrder)}">

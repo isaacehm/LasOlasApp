@@ -3,6 +3,10 @@
 		<ion-nav-back-button></ion-nav-back-button>
 	</ion-nav-bar>
 
+  <ion-nav-title>
+    <img id="logo-head" src="../img/horizont-small.png">    
+  </ion-nav-title>
+
   <ion-nav-buttons side="right">
     <button class="button" ng-controller="OrdersCtrl" ng-click="removeOrder()">
       <i class="icon ion-trash-b custom-trash-icon"></i>
@@ -10,6 +14,8 @@
   </ion-nav-buttons>
 
 	<ion-content>
+
+    <div id="current-container">{{stay}} {{stayNumber}}</div>
 
     <div class="banner">
       <h4 ng-if="subcategory == undefined">{{category}}</h4>
@@ -20,13 +26,13 @@
       <div ng-repeat="product in products">
         <ion-item class="item-stable" ng-click="toggleGroup(product)" ng-class="{active: isGroupShown(product)}">
             <i class="icon" ng-class="isGroupShown(product) ? 'ion-minus' : 'ion-plus'"></i>
-          {{product.name}}
+            <!--<div>{{product.name}}</div>-->
+            <span>{{product.name}}</span> <span style="float:right;">$ {{product.price}}</span>
         </ion-item>
         <ion-item class="item-accordion item-button-right" ng-show="isGroupShown(product)">
           <p> Cantidad: {{product.order}} </p>
-          <p> Precio: {{product.price}} </p>
-          <p> Total: {{product.total}} </p>
-          <input type="text" class="note" ng-model="product.note" value="{{product.note}}" placeholder="Añadir comentario..."></input>
+          <p> Total: $ {{product.total}} </p>
+          <input id="description" type="text" class="note" ng-model="product.note" value="{{product.note}}" placeholder="Añadir comentario..."></input>
           <div class="buttons">
             <button class="button button-stable" ng-click="addOrder(product)">
               <i class="icon ion-plus"></i>
