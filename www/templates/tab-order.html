@@ -29,8 +29,11 @@
 
 		<ion-list ng-if="hasOrder">
 			<ion-item class="item-remove-animate custom-item-product" ng-repeat="order in orders" type="item-text-wrap" ng-if="order.order > 0">
+				<button id="close-button" class="button" ng-controller="OrdersCtrl" ng-click="removeProduct(order)">
+					<i class="ion-close-circled"></i>
+				</button>
 				<div> <span>{{order.order}} {{order.name}}</span> <span style="float:right;">$ {{order.total}}</span> </div>
-				<input id="description" type="text" class="note" ng-model="order.note" value="{{order.note}}" placeholder="Añadir comentario..."></input>
+				<input id="description" type="text" class="note" ng-model="order.note" value="{{order.note}}" placeholder="Añadir comentario..." ng-if="order.note != ''" disabled=""></input>
 			</ion-item>
 
 			<ion-item class="item-remove-animate custom-item-total">

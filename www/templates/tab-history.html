@@ -31,15 +31,18 @@
 	        <ion-item class="item-stable" ng-click="toggleGroup(myOrder)" ng-class="{active: isGroupShown(myOrder)}">
 	            <i class="icon" ng-class="isGroupShown(myOrder) ? 'ion-minus' : 'ion-plus'"></i>
 	          &nbsp;
+	          <p class="status" ng-class="isPending(myOrder.status) ? 'green' : 'red'" style="line-height: 20px;"> {{myOrder.status}} </p>
 	          {{myOrder.stay}} {{myOrder.stayNumber}}
 	          <p>{{myOrder.date}}</p>
 	        </ion-item>
 	        <ion-item class="item-accordion" ng-show="isGroupShown(myOrder)" ng-repeat="product in myOrder.products">
-	          <div> <span>{{product.order}} {{product.name}}</span> <span style="float:right;">$ {{product.total}}</span> </div>
+	          <div>
+	          	<span>{{product.order}} {{product.name}}</span>
+	          	<span style="float:right;">$ {{product.total}}</span>
+	          </div>
 	        </ion-item>
 	        <ion-item class="item-accordion" ng-show="isGroupShown(myOrder)">
-	          <div> <span><b>TOTAL</b></span> <span style="float:right;">$ {{myOrder.total}}</span> </div>
-	          <p ng-class="isPending(myOrder.status) ? 'green' : 'red'" style="line-height: 20px;"> {{myOrder.status}} </p>
+	          <div> <span><b>TOTAL</b></span> <span style="float:right;">$ {{myOrder.total}}</span> </div>	          
 	        </ion-item>        
 
 	      </div>

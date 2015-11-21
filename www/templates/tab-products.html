@@ -31,7 +31,7 @@
         </ion-item>
         <ion-item class="item-accordion item-button-right" ng-show="isGroupShown(product)">
           <p> Cantidad: {{product.order}} </p>
-          <p> Total: $ {{product.total}} </p>
+          <p> <strong> Total: $ {{product.total}} </strong> </p>
           <input id="description" type="text" class="note" ng-model="product.note" value="{{product.note}}" placeholder="Añadir comentario..."></input>
           <div class="buttons">
             <button class="button button-stable" ng-click="addOrder(product)">

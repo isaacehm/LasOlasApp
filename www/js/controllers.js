@@ -87,29 +87,6 @@ angular.module('starter.controllers', ['ionic'])
 
 })
 
-/*.controller('MainCtrl', function($scope, $ionicPopup, $state, API, $rootScope) {
-
-	$scope.categories = API.getCategories();
-
-	$scope.selectType = function(categoryId, name){
-
-		$rootScope.subcategories = API.getSubcategoriesByCategoryId(categoryId);
-		$rootScope.category = name;
-		$rootScope.subcategory = undefined;
-
-		if ($rootScope.subcategories.length > 0) {
-			$rootScope.categoryId = null;
-			$state.go('types');
-		}else{
-			$rootScope.categoryId = categoryId;
-			$state.go('products');
-		}
-	};
-
-	$scope.BackToStays = function(){
-		$state.go('stays');
-	}
-})*/
 
 .controller('TypesCtrl', function($scope, $ionicPopup, $state, API, $rootScope) {
 	$scope.BackToMain = function(){		
@@ -179,12 +156,14 @@ angular.module('starter.controllers', ['ionic'])
 	if ($rootScope.orders != undefined)
 		for (var i = 0; i<$rootScope.orders.length; i++)
 			total += parseFloat($rootScope.orders[i].total);
-	$rootScope.total = total.toString();
+	//$rootScope.total = total.toString();
+	$rootScope.total = total;
 
 	$scope.sendOrder = function(){
 
 		API.sendOrder($rootScope.employee, $rootScope.stay, $rootScope.stayNumber, $rootScope.orders).then(function(data){
 			if (data) {
+				API.initProducts();
 				$rootScope.products = undefined;
 				$rootScope.subcategory = undefined;
 				$rootScope.category = undefined;
@@ -232,9 +211,18 @@ angular.module('starter.controllers', ['ionic'])
 				$rootScope.orders = undefined;
 				$state.go('stays');
 			}
-		});
+		});		
+	}
 
-		
+	$scope.removeProduct = function(product){
+
+				$rootScope.total -= product.total;
+				if($rootScope.total == 0)
+					$rootScope.hasOrder = false;
+
+				product.order = 0;
+				product.total = 0;
+
 	}
 
 })

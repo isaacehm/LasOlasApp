@@ -17,13 +17,32 @@
 .note{
 	width: 100%;
 	height: 30px;
-	/*background-color: #33cd5f;*/
 	margin-bottom: 10px;
+  margin-top: 10px;
+  padding-left: 10px;
+  background-color: rgba(4, 128, 206, 0.1);
+  border: 2px solid #075fbb;
+  border-radius: 2px;
 }
 
 .custom-trash-icon{
   color : red;
   font-size: 30px;
+}
+
+.banner-dark{
+  background-color: #0b3fa8;
+  color: white;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  line-height: 2px;
+}
+
+.banner-dark > h4{
+  font-weight: bold;
+  color: white;
+  margin-top: 0px;
 }
 
 .banner{
@@ -33,6 +52,10 @@
   border-bottom-color: gray;
   border-bottom-style: solid;
   border-bottom-width: 5px;
+}
+
+.banner > h4{
+  font-weight: bold;
 }
 
 .red{
@@ -103,7 +126,8 @@
 }
 
 .custom-input-medium{
-  border-top-width: 1px;
+  /*border-top-width: 3px;*/
+  margin-top: 10px;
 }
 
 .custom-login-button{
@@ -129,10 +153,11 @@
 
 .custom-item-product{
   background-color: rgba(4, 128, 206, 0.2);
+  border-bottom: 2px solid white;
 }
 
 .custom-item-total{
-  color: white;
+  color: black;
   font-weight: bold;
   background-color: rgba(0, 160, 225, 0.6);
 }
@@ -145,16 +170,58 @@
   margin-top: 10px;
   padding-left: 10px;
   background-color: rgba(4, 128, 206, 0.1);
+  border: 2px solid #075fbb;
+  border-radius: 2px;
 }
 
 #current-container{
   float: right;
   margin-right: 10px;
-  color: gray;
-  font-size: 14px;
+  color: #0480ce;
+  font-size: 15px;
+  font-weight: bold;
 }
 
+#close-button{
+  float: right;
+  color: red;
+  background-color: transparent;
+  border: transparent;
+  margin-top: -14px;
+  margin-right: -10px;
+  margin-bottom: 5px;
+}
 
+.item.active{
+  background-color: #00a0e1 !important;
+  color: white;
+}
+
+.popup-body > input{
+  margin-top: 10px;
+  padding-left: 10px;
+  background-color: rgba(4, 128, 206, 0.1);
+  border: 2px solid #075fbb;
+  border-radius: 2px;
+}
+
+.popup-title{
+  font-weight: bold;
+}
+
+.bolder{
+  font-weight: bold !important;
+  font-size: 20px !important;
+}
+
+.status{
+  float: right;
+  font-weight: bold;
+}
+
+.custom-name{
+  font-size: 20px !important;
+}
 
 /*
 #00a0e1
