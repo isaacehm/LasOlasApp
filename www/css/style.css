@@ -31,7 +31,7 @@
 }
 
 .banner-dark{
-  background-color: #0b3fa8;
+  background-color: #387ef5;
   color: white;
   padding-top: 10px;
   padding-bottom: 5px;
@@ -85,8 +85,12 @@
   border-bottom-width: 0px;
 }
 
-.tab-item.tab-item-active{
+/*.tab-item.tab-item-active{
     border: 0 solid #0480ce !important;
+}*/
+
+.tab-title{
+  font-weight: bold;
 }
 
 .sendButton{
@@ -94,7 +98,8 @@
 }
 
 .sendButton > button{
-  background: linear-gradient(#00a0e1, #075fbb);
+  /*background: linear-gradient(#00a0e1, #075fbb);*/
+  width: 100%;
 }
 
 .notification{
@@ -120,7 +125,7 @@
 
 .custom-input{
   border-style: solid;
-  border-width: 3px;
+  border-width: 1.5px;
   border-color: #0480ce;
   /*border-image: linear-gradient(to bottom, #00a0e1, #0b3fa8) 1;*/
 }
@@ -170,7 +175,7 @@
   margin-top: 10px;
   padding-left: 10px;
   background-color: rgba(4, 128, 206, 0.1);
-  border: 2px solid #075fbb;
+  border: 1px solid #075fbb;
   border-radius: 2px;
 }
 
@@ -178,7 +183,7 @@
   float: right;
   margin-right: 10px;
   color: #0480ce;
-  font-size: 15px;
+  font-size: 17px;
   font-weight: bold;
 }
 
@@ -193,7 +198,7 @@
 }
 
 .item.active{
-  background-color: #00a0e1 !important;
+  background-color: #11c1f3 !important;
   color: white;
 }
 
@@ -220,7 +225,19 @@
 }
 
 .custom-name{
-  font-size: 20px !important;
+  font-size: 24px !important;
+}
+
+.tab-item.activated, .tab-item.tab-item-active{
+  border: 0 solid black !important;
+}
+
+.item-stable > .ng-binding{
+  font-size: 18px;
+}
+
+.item-stable > i{
+  font-size: 18px; 
 }
 
 /*

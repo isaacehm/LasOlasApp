@@ -25,20 +25,20 @@
 		<ion-list>
       <div ng-repeat="product in products">
         <ion-item class="item-stable" ng-click="toggleGroup(product)" ng-class="{active: isGroupShown(product)}">
-            <i class="icon" ng-class="isGroupShown(product) ? 'ion-minus' : 'ion-plus'"></i>
+            <i class="icon" ng-class="isGroupShown(product) ? 'ion-ios-arrow-up' : 'ion-ios-arrow-down'"></i>
             <!--<div>{{product.name}}</div>-->
             <span>{{product.name}}</span> <span style="float:right;">$ {{product.price}}</span>
         </ion-item>
         <ion-item class="item-accordion item-button-right" ng-show="isGroupShown(product)">
           <p> Cantidad: {{product.order}} </p>
           <p> <strong> Total: $ {{product.total}} </strong> </p>
-          <input id="description" type="text" class="note" ng-model="product.note" value="{{product.note}}" placeholder="Añadir comentario..."></input>
+          <input id="description" type="text" class="note" ng-model="product.note" value="{{product.note}}" placeholder="Añadir comentario..." maxlength="30"></input>
           <div class="buttons">
-            <button class="button button-stable" ng-click="addOrder(product)">
-              <i class="icon ion-plus"></i>
-            </button>
             <button class="button button-stable" ng-click="removeOrder(product)">
               <i class="icon ion-minus"></i>
+            </button>
+            <button class="button button-stable" ng-click="addOrder(product)">
+              <i class="icon ion-plus"></i>
             </button>
           </div>
         </ion-item>

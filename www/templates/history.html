@@ -22,7 +22,7 @@
 
       <div ng-repeat="myOrder in myOrders">
         <ion-item class="item-stable" ng-click="toggleGroup(myOrder)" ng-class="{active: isGroupShown(myOrder)}">
-            <i class="icon" ng-class="isGroupShown(myOrder) ? 'ion-minus' : 'ion-plus'"></i>
+            <i class="icon" ng-class="isGroupShown(myOrder) ? 'ion-ios-arrow-up' : 'ion-ios-arrow-down'"></i>
           &nbsp;
           <p class="status" ng-class="isPending(myOrder.status) ? 'green' : 'red'" style="line-height: 20px;"> {{myOrder.status}} </p>
           {{myOrder.stay}} {{myOrder.stayNumber}}

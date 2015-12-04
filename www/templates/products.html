@@ -10,7 +10,7 @@
 
   <ion-content>
 
-    <div class="banner">
+    <div class="banner-dark">
       <h4 ng-if="subcategory == undefined">{{category}}</h4>
       <h4 ng-if="subcategory != undefined">{{category}} > {{subcategory}}</h4>
     </div>
@@ -18,7 +18,7 @@
     <ion-list>
         <div ng-repeat="product in products">
           <ion-item class="item-stable" ng-click="toggleGroup(product)" ng-class="{active: isGroupShown(product)}">
-              <i class="icon" ng-class="isGroupShown(product) ? 'ion-minus' : 'ion-plus'"></i>
+              <i class="icon" ng-class="isGroupShown(product) ? 'ion-ios-arrow-up' : 'ion-ios-arrow-down'"></i>
             &nbsp;
             {{product.name}}
           </ion-item>
