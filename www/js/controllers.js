@@ -44,7 +44,7 @@ angular.module('starter.controllers', ['ionic'])
 	$scope.selectStayNumber = function(name){
 		$rootScope.stay = name;
 
-		$scope.data = {}
+		$scope.data = {};
 
 		if (name == "Sombrilla"){
 			var temp = '<input type="number" min="1" max="300" ng-model="data.stayNumber">';

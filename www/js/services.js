@@ -11,12 +11,13 @@ angular.module('starter.services', ['ionic'])
     var myOrders = [];
     var date = new Date();
     var currentDate = date.getDate()+'-'+(date.getMonth()+1)+'-'+date.getYear();
+    var url = 'http://oneidea.com.ar/balneario';
 
     return{
         login: function(username, password){
             var req = {
                     method: 'POST',
-                    url: 'http://localhost:3000/api/user', 
+                    url: url+'/api/user', 
                     headers: { 
                       'Content-Type': 'application/x-www-form-urlencoded'
                     },
@@ -45,7 +46,7 @@ angular.module('starter.services', ['ionic'])
         initStays: function(){
             var req = {
                     method: 'GET',
-                    url: 'http://localhost:3000/api/stays', 
+                    url: url+'/api/stays', 
                     headers: { 
                       'Content-Type': 'application/x-www-form-urlencoded'
                     }
@@ -69,34 +70,24 @@ angular.module('starter.services', ['ionic'])
         },
 
         initUniqueStays: function(){
-            var req = {
-                    method: 'GET',
-                    url: 'http://localhost:3000/api/stay', 
-                    headers: { 
-                      'Content-Type': 'application/x-www-form-urlencoded'
-                    }
-                };
-
-                return $http(req).then(function(data) {
-                    for(var i=0; i<data.data.length; i++)
-                        uniqueStays.push({"name":data.data[i]});
-                  
-                }, function(data) {
-                    console.log(data.status+": "+data.data.msg);
+                var aux = [];
+                stays.forEach(function(stay){
+                    if(aux.indexOf(stay.name) == -1)
+                        uniqueStays.push({name:stay.name});
+                        aux.push(stay.name);
                 });
 
         },
 
         getUniqueStays: function(){
             return uniqueStays;
-
         },
 
 
         initCategories: function(){
             var req = {
                     method: 'GET',
-                    url: 'http://localhost:3000/api/categories', 
+                    url: url+'/api/categories', 
                     headers: { 
                       'Content-Type': 'application/x-www-form-urlencoded'
                     }
@@ -117,7 +108,7 @@ angular.module('starter.services', ['ionic'])
         initSubcategories: function(){
             var req = {
                     method: 'GET',
-                    url: 'http://localhost:3000/api/subcategories', 
+                    url: url+'/api/subcategories', 
                     headers: { 
                       'Content-Type': 'application/x-www-form-urlencoded'
                     }
@@ -144,7 +135,7 @@ angular.module('starter.services', ['ionic'])
             products = [];
             var req = {
                     method: 'GET',
-                    url: 'http://localhost:3000/api/products', 
+                    url: url+'/api/products', 
                     headers: { 
                       'Content-Type': 'application/x-www-form-urlencoded'
                     }
@@ -207,7 +198,7 @@ angular.module('starter.services', ['ionic'])
             myOrders = [];
             var req = {
                     method: 'GET',
-                    url: 'http://localhost:3000/api/orders/'+employee+'/'+currentDate, 
+                    url: url+'/api/orders/'+employee+'/'+currentDate, 
                     headers: { 
                       'Content-Type': 'application/x-www-form-urlencoded'
                     }
@@ -261,7 +252,7 @@ angular.module('starter.services', ['ionic'])
 
             var req = {
                     method: 'POST',
-                    url: 'http://localhost:3000/api/orders', 
+                    url: url+'/api/orders', 
                     headers: { 
                       'Content-Type': 'application/x-www-form-urlencoded'
                     },
