@@ -114,8 +114,15 @@ angular.module('starter.controllers', ['ionic'])
 .controller('ProductsCtrl', function($scope, $ionicPopup, $state, API, $rootScope) {
 
 	$scope.addOrder = function(product){
-		product.order++;
-		product.total += parseFloat(product.price);
+		if(product.stock <= 0 || (product.stock - product.order) <= 0){
+			$ionicPopup.alert({
+        title: 'Stock insuficiente',
+        template: 'Disculpe, no tenemos stock para este producto.'
+      });
+		}else{
+			product.order++;
+			product.total += parseFloat(product.price);
+		}		
 	}
 
 	$scope.removeOrder = function(product){
