@@ -22,6 +22,8 @@
       <h4 ng-if="subcategory != undefined">{{category}} > {{subcategory}}</h4>
     </div>
 
+    <h4 class="no-products" ng-if="products.length === 0">No hay productos en stock para esta categoría.</h4>
+
 		<ion-list>
       <div ng-repeat="product in products">
         <ion-item class="item-stable" ng-click="toggleGroup(product)" ng-class="{active: isGroupShown(product)}">

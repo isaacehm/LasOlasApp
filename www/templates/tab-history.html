@@ -18,7 +18,7 @@
 		
 		<div class="banner">
 	      <h4>HISTORIAL</h4>
-	      <p>Tus pedidos enviados hoy</p>
+	      <p>Tus pedidos enviados hoy: {{currentDate | date: 'dd/MM'}}</p>
 	    </div>
 
 	    <ion-list>
@@ -31,9 +31,9 @@
 	        <ion-item class="item-stable" ng-click="toggleGroup(myOrder)" ng-class="{active: isGroupShown(myOrder)}">
 	            <i class="icon" ng-class="isGroupShown(myOrder) ? 'ion-ios-arrow-up' : 'ion-ios-arrow-down'"></i>
 	          &nbsp;
-	          <p class="status" ng-class="isPending(myOrder.status) ? 'green' : 'red'" style="line-height: 20px;"> {{myOrder.status}} </p>
+	          <p class="status" ng-class="{'red': myOrder.status == 'Pendiente', 'yellow': myOrder.status == 'Procesada', 'green': myOrder.status == 'Cobrada'}" style="line-height: 20px;"> {{myOrder.status}} </p>
 	          {{myOrder.stay}} {{myOrder.stayNumber}}
-	          <p>{{myOrder.date}}</p>
+	          <p class="order-time">{{myOrder.date | date: 'HH:mm': '-0300'}}</p>
 	        </ion-item>
 	        <ion-item class="item-accordion" ng-show="isGroupShown(myOrder)" ng-repeat="product in myOrder.products">
 	          <div>
@@ -46,13 +46,7 @@
 	        </ion-item>        
 
 	      </div>
-
-
     </ion-list>
-
-
-
-
 
 	</ion-content>
 </ion-view>

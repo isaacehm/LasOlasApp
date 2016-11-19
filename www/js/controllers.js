@@ -294,7 +294,8 @@ angular.module('starter.controllers', ['ionic'])
 	};
 
 	$scope.isPending = function(status) {
-		return status === 'Pending';
+		console.log(status);
+		return status === 'Pendiente';
 	};
 
 })

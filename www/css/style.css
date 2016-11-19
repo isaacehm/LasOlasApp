@@ -58,13 +58,11 @@
   font-weight: bold;
 }
 
-.red{
-  color: red !important;
-}
+.red{ color: red !important; }
 
-.green{
-  color: green !important;
-}
+.green{ color: green !important; }
+
+.yellow{ color: #ff8d1a !important; }
 
 .custum-button{
   width: 49%;
@@ -238,6 +236,19 @@
 
 .item-stable > i{
   font-size: 18px; 
+}
+
+.order-time{
+  font-size: 14px;
+  padding-left: 25px;
+  font-weight: bold;
+  color: black;
+}
+
+.no-products{
+  padding: 5px;
+  text-align: center;
+  margin-top: 50%;
 }
 
 /*

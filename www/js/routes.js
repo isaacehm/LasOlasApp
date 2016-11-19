@@ -79,6 +79,7 @@ angular.module('starter.routes', ['ionic'])
 				resolve: {
 					Orders: function(API, $rootScope){
 						API.initMyOrders();
+						$rootScope.currentDate = new Date();
 						$rootScope.myOrders = API.getMyOrders();
 						return false;				
 					}
@@ -130,6 +131,7 @@ angular.module('starter.routes', ['ionic'])
 		resolve: {
 			Orders: function(API, $rootScope){
 				API.initMyOrders();
+				$rootScope.currentDate = new Date();
 				$rootScope.myOrders = API.getMyOrders();
 				return false;				
 			}
