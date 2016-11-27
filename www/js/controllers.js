@@ -4,6 +4,7 @@ angular.module('starter.controllers', ['ionic'])
 
 	//$state.go('login');
 	$rootScope.hasOrder = false;
+	$rootScope.currentYear = '2016';
 
 })
 
@@ -35,29 +36,25 @@ angular.module('starter.controllers', ['ionic'])
     }
 })
 
-.controller('StaysCtrl', function($scope, $ionicPopup, $state, API, $rootScope) {
+.controller('StaysCtrl', function($scope, $ionicPopup, $state, API, $rootScope, $ionicHistory) {
+
+	$ionicHistory.clearHistory();
+	$ionicHistory.clearCache();
 
 	API.initUniqueStays();
-
 	$scope.stays = API.getUniqueStays();
 
-	$scope.selectStayNumber = function(name){
-		$rootScope.stay = name;
+	$scope.selectStayNumber = function(stay){
+		$rootScope.stay = stay.name;
 
 		$scope.data = {};
-
-		if (name == "Sombrilla"){
-			var temp = '<input type="number" min="1" max="300" ng-model="data.stayNumber">';
-		}else if(name == "Carpa" || name == "Mesa"){
-			var temp = '<input type="number" min="1" max="50" ng-model="data.stayNumber">';
-		}
-
+		var temp = '<input type="number" min="1" max="'+stay.max+'" ng-model="data.stayNumber">';
 
 		// An elaborate, custom popup
 	   var stayNumber = $ionicPopup.show({
 	     template: temp,
-	     title: 'Numero de '+name,
-	     subTitle: 'Por favor, ingrese el numero de la '+name,
+	     title: 'Número de '+stay.name,
+	     subTitle: 'Por favor, ingrese el número de la '+stay.name,
 	     scope: $scope,
 	     buttons: [
 	       { text: 'Cancelar' },
@@ -114,7 +111,7 @@ angular.module('starter.controllers', ['ionic'])
 .controller('ProductsCtrl', function($scope, $ionicPopup, $state, API, $rootScope) {
 
 	$scope.addOrder = function(product){
-		if(product.stock <= 0 || (product.stock - product.order) <= 0){
+		if(product.stock != -1 && (product.stock <= 0 || (product.stock - product.order) <= 0)){
 			$ionicPopup.alert({
         title: 'Stock insuficiente',
         template: 'Disculpe, no tenemos stock para este producto.'
@@ -180,16 +177,16 @@ angular.module('starter.controllers', ['ionic'])
 				$rootScope.orders = undefined;
 				$state.go('stays');
 				var alertPopup = $ionicPopup.alert({
-	                title: 'Pedido enviado.',
-	                template: 'El pedido ha sido enviado exitosamente. ¡Gracias!'
-	            });
+            title: 'Pedido enviado.',
+            template: 'El pedido ha sido enviado exitosamente. ¡Gracias!'
+        });
 				$timeout(function() {
 					alertPopup.close(); //close the popup after 3 seconds for some reason
 				}, 3000);
 
 			}else{
 				var alertPopup = $ionicPopup.alert({
-	                title: 'Ocurrio un problema.',
+	                title: 'Ocurrió un problema.',
 	                template: 'Lo sentimos, no pudimos procesar el pedido. Por favor, reintente en unos segundos o consulte al administrador.'
 	            });
 			}

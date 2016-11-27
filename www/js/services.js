@@ -12,6 +12,7 @@ angular.module('starter.services', ['ionic'])
     var date = new Date();
     var currentDate = date.getDate()+'-'+(date.getMonth()+1)+'-'+date.getYear();
     var url = 'http://oneidea.com.ar/balneario';
+    //var url = 'http://oneidea.com.ar/balneario/hawaii';
 
     return{
         login: function(username, password){
@@ -71,9 +72,13 @@ angular.module('starter.services', ['ionic'])
 
         initUniqueStays: function(){
                 var aux = [];
+                uniqueStays = [];
                 stays.forEach(function(stay){
                     if(aux.indexOf(stay.name) == -1)
-                        uniqueStays.push({name:stay.name});
+                        uniqueStays.push({
+                            name: stay.name,
+                            max: stay.maxNumber
+                        });
                         aux.push(stay.name);
                 });
 

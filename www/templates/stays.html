@@ -1,4 +1,4 @@
-<ion-view view-title="Sectores">
+<ion-view cache-view="false" view-title="Sectores">
   <ion-nav-bar animation="nav-title-slide-ios7" class="bar-stable">
   </ion-nav-bar>
 
@@ -20,7 +20,7 @@
     </div>
 
     <ion-list>
-      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="stay in stays" type="item-text-wrap" ng-click="selectStayNumber(stay.name)">
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="stay in stays" type="item-text-wrap" ng-click="selectStayNumber(stay)">
           <h2 class="bolder">{{stay.name}}</h2>
           <i class="icon ion-chevron-right"></i>
       </ion-item>
