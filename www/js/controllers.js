@@ -19,8 +19,12 @@ angular.module('starter.controllers', ['ionic'])
 	    			API.initCategories().then(function(){
 	    				API.initSubcategories().then(function(){
 	    					API.initProducts().then(function(){
+	    						//var socket = API.getSocket();
+									/*socket.on('order deleted', function(){
+										console.log('Refreshing stock...');
+										API.initProducts();
+									});*/
 	    						$state.go('stays');
-	    						//$state.go('tab.stays');
 	    					});    					
 	    				});    				
 	    			});
@@ -76,6 +80,7 @@ angular.module('starter.controllers', ['ionic'])
 		stayNumber.then(function(res) {
 			if(res != undefined){
 				$rootScope.stayNumber = res;
+				API.initProducts();
 				$state.go('tab.menu');
 			}
 		});
@@ -167,7 +172,7 @@ angular.module('starter.controllers', ['ionic'])
 
 		API.sendOrder($rootScope.employee, $rootScope.stay, $rootScope.stayNumber, $rootScope.orders).then(function(data){
 			if (data) {
-				API.initProducts();
+				//API.initProducts();
 				$rootScope.products = undefined;
 				$rootScope.subcategory = undefined;
 				$rootScope.category = undefined;
@@ -186,9 +191,9 @@ angular.module('starter.controllers', ['ionic'])
 
 			}else{
 				var alertPopup = $ionicPopup.alert({
-	                title: 'Ocurrió un problema.',
-	                template: 'Lo sentimos, no pudimos procesar el pedido. Por favor, reintente en unos segundos o consulte al administrador.'
-	            });
+          title: 'Ocurrió un problema.',
+          template: 'Lo sentimos, no pudimos procesar el pedido. Por favor, reintente en unos segundos o consulte al administrador.'
+        });
 			}
 		});
 		
@@ -219,14 +224,13 @@ angular.module('starter.controllers', ['ionic'])
 	}
 
 	$scope.removeProduct = function(product){
+		$rootScope.total -= product.total;
+		if($rootScope.total == 0)
+			$rootScope.hasOrder = false;
 
-				$rootScope.total -= product.total;
-				if($rootScope.total == 0)
-					$rootScope.hasOrder = false;
-
-				product.order = 0;
-				product.total = 0;
-
+		product.order = 0;
+		product.total = 0;	
+		
 	}
 
 })

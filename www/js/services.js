@@ -13,6 +13,9 @@ angular.module('starter.services', ['ionic'])
     var currentDate = date.getDate()+'-'+(date.getMonth()+1)+'-'+date.getYear();
     var url = 'http://oneidea.com.ar/balneario';
     //var url = 'http://oneidea.com.ar/balneario/hawaii';
+    
+    //var socket = io('http://oneidea.com.ar:3000'); // LasOlas
+    //var socket = io('http://oneidea.com.ar:4000'); // Hawaii
 
     return{
         login: function(username, password){
@@ -43,6 +46,10 @@ angular.module('starter.services', ['ionic'])
                 return false;
             });
         },
+
+        /*getSocket: function(){
+            return socket;
+        },*/
 
         initStays: function(){
             var req = {
@@ -249,8 +256,10 @@ angular.module('starter.services', ['ionic'])
             var order = "";
             var total = 0;
             for (var i = 0; i < products.length; i++){
-                total += parseFloat(products[i].total);
-                order += JSON.stringify(products[i])+";";         
+                if(products[i].order > 0){
+                    total += parseFloat(products[i].total);
+                    order += JSON.stringify(products[i])+";";                    
+                }
             }
 
             total = total.toString();
